@@ -3,6 +3,7 @@
   "version": "0.11.0",
   "description": "总体组通用组件库",
   "main": "./db-comp/component.js",
+  "homepage": "https://kinghoo5201.github.io/db-comp/",
   "scripts": {
     "start": "node scripts/start.js",
     "build-docs": "node scripts/build.js",
