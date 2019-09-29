@@ -2,6 +2,14 @@ import * as React from 'react';
 import Component from './index';
 
 export default class TestDoc extends React.Component<any, any> {
+  public state = {
+    code: '',
+  };
+  public componentDidMount() {
+    fetch('/src/Components/Db-Table/index.tsx')
+      .then(res => res.text())
+      .then(text => this.setState({ code: text }));
+  }
   public render() {
     return (
       <div>
@@ -13,6 +21,9 @@ export default class TestDoc extends React.Component<any, any> {
             },
           ]}
         />
+        <hr />
+        <h3>db-table源代码</h3>
+        <pre>{this.state.code}</pre>
       </div>
     );
   }
