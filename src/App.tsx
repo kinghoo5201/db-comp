@@ -141,7 +141,11 @@ class Wrapper extends React.Component<WrapProps, WrapState> {
                       });
                     }}
                   >
-                    查看{item}
+                    查看
+                    {`./${item
+                      .split('/')
+                      .slice(2)
+                      .join('/')}`}
                     <Icon type="code" title={`展示${item}源代码`} />
                   </Tag>
                 );
