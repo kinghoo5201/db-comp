@@ -190,5 +190,9 @@
         "antd-mobile"
       ]
     ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kinghoo5201/db-comp.git"
   }
 }
