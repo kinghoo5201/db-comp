@@ -89,7 +89,7 @@ class Wrapper extends React.Component<WrapProps, WrapState> {
                 to={path}
                 className={`nav-link${urlObj.path === path ? ' active' : ''}`}
               >
-                {text}
+                {text.replace('-', '')}
               </Link>
             );
           })}
