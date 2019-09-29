@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Divider } from 'antd';
 import Component from './index';
 
 export default class TestDoc extends React.Component<any, any> {
@@ -6,7 +7,7 @@ export default class TestDoc extends React.Component<any, any> {
     code: '',
   };
   public componentDidMount() {
-    fetch('/src/Components/Db-Table/index.tsx')
+    fetch('/db-comp/src/Components/Db-Table/index.tsx')
       .then(res => res.text())
       .then(text => this.setState({ code: text }));
   }
@@ -21,7 +22,7 @@ export default class TestDoc extends React.Component<any, any> {
             },
           ]}
         />
-        <hr />
+        <Divider />
         <h3>db-table源代码</h3>
         <pre>{this.state.code}</pre>
       </div>

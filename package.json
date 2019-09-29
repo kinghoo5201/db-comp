@@ -6,7 +6,7 @@
   "homepage": "https://kinghoo5201.github.io/db-comp/docs",
   "scripts": {
     "start": "node scripts/start.js",
-    "build-docs": "node scripts/build.js",
+    "pub-site": "echo \"请在master分支上操作\" && node scripts/build.js && npm run commit",
     "build": "((rd /s/q db-comp || rm -rf db-comp) && tsc)||tsc",
     "commit": "git add . && git commit -m \"auto commit with shell\" && ( ( git pull && git push && echo \"提交成功\" )|| ( git reset HEAD && echo \"pull错误，已重置\" ) )",
     "test": "node scripts/test.js",
