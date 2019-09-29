@@ -1,0 +1,28 @@
+.contex-menu-inner {
+  position: fixed;
+  z-index: 9999;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+  padding: 12px 0;
+  background-color: white;
+  border-radius: 4px;
+  user-select: none;
+  .context-menu-item {
+    white-space: nowrap;
+    cursor: pointer;
+    line-height: 20px;
+    font-size: 14px;
+    padding: 8px 16px;
+    border-bottom: 1px solid #e8e8e8;
+    color: #333333;
+    &:hover {
+      background-color: #e6f7ff;
+    }
+    &:last-child {
+      border: none;
+    }
+    &.disabled {
+      pointer-events: none;
+      color: #999999;
+    }
+  }
+}
