@@ -51,11 +51,18 @@ class Wrapper extends React.Component<WrapProps, WrapState> {
   };
 
   public handleData = (props: WrapProps) => {
-    fetch(`/db-comp/src/Components/${props.path}/doc.tsx`)
+    fetch(
+      `/db-comp/src/Components/${props.path}/doc.tsx?random=${Math.random()}`,
+    )
       .then(res => res.text())
       .then(doc => this.setState({ doc }));
     this.state.files.forEach(file => {
-      fetch(`/db-comp/src/Components/${file.replace(/^\.\//, '')}`)
+      fetch(
+        `/db-comp/src/Components/${file.replace(
+          /^\.\//,
+          '',
+        )}?random=${Math.random()}`,
+      )
         .then(res => res.text())
         .then(text => {
           this.setState({
