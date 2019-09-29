@@ -104,7 +104,10 @@ export default class DbTable<T> extends React.Component<
 
   public render() {
     return (
-      <div className={`db-table ${this.props.className}`}>
+      <div
+        className={`db-table ${this.props.className}`}
+        style={this.props.style}
+      >
         <Table
           rowKey={idKey}
           columns={this.state.columns}

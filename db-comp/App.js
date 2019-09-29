@@ -95,7 +95,7 @@ var Wrapper = /** @class */ (function (_super) {
             React.createElement(antd_1.Col, { span: 6, className: "left-panel" }, componentDocs.map(function (item) {
                 var path = item.replace(/^\./, '').replace(/\.tsx$/, '');
                 var text = item.split('/')[1];
-                return (React.createElement(react_router_dom_1.Link, { key: path, to: path, className: "nav-link" + (urlObj.path === path ? ' active' : '') }, text));
+                return (React.createElement(react_router_dom_1.Link, { key: path, to: path, className: "nav-link" + (urlObj.path === path ? ' active' : '') }, text.replace('-', '')));
             })),
             React.createElement(antd_1.Col, { span: 18, className: "right-panel" },
                 React.createElement("div", { className: "code-box" },
@@ -120,8 +120,10 @@ var Wrapper = /** @class */ (function (_super) {
                                     selectedSource: _this.state.selectedSource === item ? '' : item,
                                 });
                             } },
-                            "\u67E5\u770B",
-                            item,
+                            "\u67E5\u770B", "./" + item
+                            .split('/')
+                            .slice(2)
+                            .join('/'),
                             React.createElement(antd_1.Icon, { type: "code", title: "\u5C55\u793A" + item + "\u6E90\u4EE3\u7801" })));
                     })),
                     React.createElement("div", { className: "highlight-wrapper " + (this.state.selectedSource ? 'active' : '') },

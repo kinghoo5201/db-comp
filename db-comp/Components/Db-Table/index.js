@@ -100,7 +100,7 @@ var DbTable = /** @class */ (function (_super) {
         this.handleData(nextProps);
     };
     DbTable.prototype.render = function () {
-        return (React.createElement("div", { className: "db-table " + this.props.className },
+        return (React.createElement("div", { className: "db-table " + this.props.className, style: this.props.style },
             React.createElement(antd_1.Table, __assign({ rowKey: idKey, columns: this.state.columns, dataSource: this.state.dataSource, pagination: this.props.pagination, loading: this.props.loading }, this.props.restProps))));
     };
     DbTable.defaultProps = new TableProps();

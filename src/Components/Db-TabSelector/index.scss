@@ -1,0 +1,23 @@
+.db-tabselector {
+  width: 100%;
+  box-sizing: border-box;
+  user-select: none;
+  .tab-item {
+    display: inline-block;
+    border: 1px solid #1491ff;
+    text-align: center;
+    color: #1491ff;
+    font-family: 'PingFangSC-Regular';
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 25px;
+    width: 50%;
+    text-align: center;
+    cursor: pointer;
+    &.active {
+      background-color: #1491ff;
+      color: white;
+      cursor: default;
+    }
+  }
+}
