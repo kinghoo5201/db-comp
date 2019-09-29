@@ -10,6 +10,7 @@
     "outDir": "./db-comp",
     "experimentalDecorators": true,
     "removeComments": false,
+    "noImplicitAny": false,
     "declaration": true,
     "declarationMap": true,
     "skipLibCheck": true,
