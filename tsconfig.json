@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "strict": true,
+    "strictNullChecks": false,
+    "jsx": "react",
+    "target": "es5",
+    "rootDir": "./src",
+    "outDir": "./db-comp",
+    "experimentalDecorators": true,
+    "removeComments": false,
+    "declaration": true,
+    "declarationMap": true,
+    "skipLibCheck": true,
+    "lib": ["dom", "es5", "es6", "es7", "scripthost", "es2018.promise"],
+    "sourceMap": true,
+    "noImplicitThis": false
+  },
+  "exclude": ["node_modules", "built", "./src/**/doc.tsx", "db-comp"]
+}

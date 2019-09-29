@@ -1,0 +1,41 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.doc-page {
+  background: #fff;
+  height: 100vh;
+  .left-panel {
+    height: 100vh;
+    border-right: 1px solid #e8e8e8;
+    overflow-y: auto;
+    padding: 32px 0;
+    .nav-link {
+      display: block;
+      height: 40px;
+      line-height: 40px;
+      padding-left: 80px;
+      padding-right: 16px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-size: 16px;
+      color: #314659;
+      &.active,
+      &:hover {
+        color: #1890ff;
+      }
+      &.active {
+        background-color: #e6f7ff;
+        border-right: 3px solid #1890ff;
+      }
+    }
+  }
+  .right-panel {
+    height: 100vh;
+    overflow-y: auto;
+    padding: 32px;
+  }
+}
