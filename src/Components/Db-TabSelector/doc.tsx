@@ -5,6 +5,8 @@ export default class Doc extends React.Component<any, any> {
   public render() {
     return (
       <div>
+        <h3>tab选择组件</h3>
+        <p>tab项选择，只支持两项数据</p>
         <Component
           items={[
             {
