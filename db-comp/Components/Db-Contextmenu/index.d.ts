@@ -7,7 +7,7 @@ import * as React from 'react';
 import './index.scss';
 /** 右键菜单项 */
 interface IRightItem {
-    text: string;
+    text: React.ReactNode;
     id: string | number;
     disabled?: boolean;
 }
