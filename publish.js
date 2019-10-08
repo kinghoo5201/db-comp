@@ -3,6 +3,28 @@ const path = require('path');
 const { execSync } = require('child_process');
 const pkg = require('./package.json');
 
+console.log('info::正在检查git分支状态，请稍后...');
+let status;
+try {
+  status = execSync(`git status`);
+} catch (e) {
+  return console.log('没有初始化git，跳过！');
+}
+const statusUtf8 = status.toString();
+
+const checkedBranch = 'master';
+
+branch = statusUtf8
+  .match(/On branch (.+?)\n/)[0]
+  .replace(/On branch/, '')
+  .trim();
+if (branch !== checkedBranch) {
+  console.log(
+    `error::当前分支为：${branch} ;请将分支切换到  ${checkedBranch}  并且保证代码和线上同步！`,
+  );
+  process.exit(1);
+}
+
 try {
   execSync('npm run build');
 } catch (e) {}
