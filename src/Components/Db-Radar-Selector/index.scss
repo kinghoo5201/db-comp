@@ -1,0 +1,38 @@
+.bees-m-card {
+  width: 100%;
+  height: 250px;
+  position: relative;
+
+  .quota-radar {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    .radar-label {
+      display: inline-block;
+      width: 6rem;
+    }
+    .am-card:before {
+      border: none;
+    }
+    .jinzhan {
+      position: absolute;
+      top: 0.6rem;
+      left: 0.6rem;
+
+      .jinzhan-icon {
+        display: inline-block;
+        width: 0.8rem;
+        height: 0.8rem;
+        border-radius: 0.4rem;
+        margin-right: 0.2rem;
+        background-color: #1890ff;
+      }
+    }
+    .more {
+      position: absolute;
+      bottom: 0.4rem;
+      right: 0.4rem;
+    }
+  }
+}

@@ -91,6 +91,7 @@
     "import/no-dynamic-require": 0,
     "@typescript-eslint/no-var-requires": 0,
     "global-require": 0,
+    "no-else-return": 0,
     "no-use-before-define": [
       "error",
       {

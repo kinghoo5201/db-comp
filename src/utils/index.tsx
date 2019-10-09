@@ -32,3 +32,17 @@ export function getUID() {
     return v.toString(16);
   });
 }
+
+/** 从数组中取下一项 */
+export function getNextItem() {
+  return (arr: any[]) => {
+    let index = -1;
+    return () => {
+      index += 1;
+      if (index >= arr.length) {
+        index = 0;
+      }
+      return arr[index];
+    };
+  };
+}
