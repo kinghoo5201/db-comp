@@ -7,7 +7,7 @@
  */
 import * as React from 'react';
 import * as _ from 'lodash';
-import { getUID } from '../../utils';
+import { getUID } from '../Db-Util';
 import {
   unstable_renderSubtreeIntoContainer,
   unmountComponentAtNode,

@@ -8,3 +8,5 @@ export { default as DbTabSelector } from './Components/Db-TabSelector';
 export { default as DbRadarSelector } from './Components/Db-Radar-Selector';
 /** 公告展示组件 */
 export { default as DbNotice } from './Components/Db-Notice';
+/** 通用方法 */
+export { default as DbUtil } from './Components/Db-Util';

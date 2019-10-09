@@ -1,6 +1,7 @@
+/* eslint-disable */
 import * as React from 'react';
 import { Divider } from 'antd';
-import util from './index';
+import * as util from './index';
 
 export default class Doc extends React.Component<any, any> {
   public render() {

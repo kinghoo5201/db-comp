@@ -4,7 +4,7 @@ import * as _ from 'lodash';
 import { Row, Col, Icon, Tag } from 'antd';
 import * as hljs from 'highlight.js';
 import { HashRouter, Route, Switch, Link, Redirect } from 'react-router-dom';
-import { urlParser } from './utils';
+import { urlParser } from './Components/Db-Util';
 import './App.scss';
 
 const context = (require as any).context('./Components', true, /doc\.tsx$/);
