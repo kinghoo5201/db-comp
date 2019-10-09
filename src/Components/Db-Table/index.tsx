@@ -2,7 +2,6 @@ import * as React from 'react';
 import * as _ from 'lodash';
 import { Table } from 'antd';
 import { getUID } from '../../utils';
-import './index.scss';
 
 const idKey: string = getUID();
 
