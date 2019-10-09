@@ -13,6 +13,15 @@ interface SelectorItem {
   targetValue?: string | number;
 }
 
+interface Color {
+  /** 起点颜色 */
+  from: string;
+  /** 结尾颜色 */
+  to: string;
+  /** 线线变化角度值 */
+  direction: string;
+}
+
 class Props {
   /** 选中的选项名称 */
   activeKey?: string = '';
@@ -22,8 +31,10 @@ class Props {
   isShowValue: boolean;
   /** 是否显示目标值 */
   isShowTarget: boolean;
+  /** 进度条背景颜色 */
+  strokeColor?: string | Color;
   /** 选项的点击事件 */
-  onClick: (params?: any) => any = () => {};
+  onChange: (params?: any) => any = () => {};
 }
 
 export default class ListItem extends React.Component<Props, any> {
@@ -34,6 +45,7 @@ export default class ListItem extends React.Component<Props, any> {
     unit: string,
     targetValue: string | number,
     isShowValue: boolean,
+    strokeColor: string | Color,
   ) => {
     return (
       <div
@@ -56,6 +68,9 @@ export default class ListItem extends React.Component<Props, any> {
                       parseFloat(String(targetValue))) *
                     100
               }%`,
+              background: _.isObject(strokeColor)
+                ? `linear-gradient(${strokeColor.direction}, ${strokeColor.from},${strokeColor.to})`
+                : strokeColor,
             }}
           />
           <div className="white-placeholds">
@@ -119,14 +134,13 @@ export default class ListItem extends React.Component<Props, any> {
     }: SelectorItem = this.props.data;
     const isActive = _.get(this.props, 'activeKey', '') === name;
     const islinesFlag = Math.ceil(name.length / 8) >= 2;
-
-    const { isShowValue, isShowTarget } = this.props;
+    const { isShowValue, isShowTarget, strokeColor } = this.props;
 
     return (
       <div
         key={name}
         onClick={() => {
-          this.props.onClick(this.props.data);
+          this.props.onChange(this.props.data);
         }}
         className={isActive ? 'list-item list-item-active' : 'list-item'}
       >
@@ -143,6 +157,7 @@ export default class ListItem extends React.Component<Props, any> {
               unit,
               targetValue,
               isShowValue,
+              strokeColor,
             )
           : this.showInvalidProgress(
               islinesFlag,
@@ -156,7 +171,7 @@ export default class ListItem extends React.Component<Props, any> {
           style={{ marginBottom: islinesFlag ? '8px' : 0, width: '64px' }}
         >
           {isShowTarget
-            ? `${targetValue ? `目标${  targetValue  }${unit}` : '\xa0'}`
+            ? `${targetValue ? `目标${targetValue}${unit}` : '\xa0'}`
             : '\xa0'}
         </div>
       </div>

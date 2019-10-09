@@ -10,6 +10,12 @@
   font-family: 'Noto Serif CJK SC', 'Noto Serif CJK', 'Source Han Serif SC',
     'Source Han Serif', source-han-serif-sc, serif;
   // transition: all 0.3s ease-in-out;
+  /* 双击不选中文字 */
+  -moz-user-select: none; /*火狐*/
+  -webkit-user-select: none; /*webkit浏览器*/
+  -ms-user-select: none; /*IE10*/
+  -khtml-user-select: none; /*早期浏览器*/
+  user-select: none;
 
   .text-box {
     position: absolute;
@@ -23,6 +29,10 @@
     border-radius: 26px;
     // transition: all 0.3s ease-in-out;
   }
+}
+
+.text-box-wrap:hover {
+  cursor: pointer;
 }
 
 .text-box-wrap.active {

@@ -51,6 +51,11 @@ export default class Doc extends React.Component<any, any> {
             activeKey="1111"
             isShowValue={true}
             isShowTarget={true}
+            strokeColor={{
+              from: '#7ceeff',
+              to: '#188f00',
+              direction: 'to right',
+            }}
             onChange={val => window.console.log('选中项：', val)}
           />
         </div>
