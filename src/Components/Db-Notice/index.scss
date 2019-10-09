@@ -1,0 +1,45 @@
+.db-top-notice {
+  padding: 16px;
+  background-image: url(//img.alicdn.com/tfs/TB15XV3doT1gK0jSZFrXXcNCXXa-1029-519.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center bottom;
+  border-radius: 6px;
+  box-shadow: 0 2px 20px 0 rgba(20, 145, 255, 0.5);
+  color: white;
+  font-size: 16px;
+  .db-top-notice-tit {
+    font-family: PingFangSC-Semibold;
+    line-height: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    .tit-cont {
+      width: 100%;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      .tit-pre {
+        font-size: 20px;
+        margin-right: 4px;
+      }
+    }
+    a {
+      color: white;
+      font-size: 12px;
+      display: block;
+      white-space: nowrap;
+      padding-left: 16px;
+    }
+  }
+  .db-top-notice-content {
+    font-family: PingFangSC-Regular;
+    padding-top: 12px;
+    p {
+      margin-bottom: 8px;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
