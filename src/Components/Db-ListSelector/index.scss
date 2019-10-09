@@ -1,0 +1,13 @@
+.db-list-selector {
+  width: 100%;
+  box-sizing: border-box;
+  user-select: none;
+}
+
+.db-circle-selector {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 20px 0;
+}
