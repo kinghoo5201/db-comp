@@ -1,5 +1,4 @@
 import * as React from 'react';
-import './index.scss';
 interface IColumn<T> {
     /** 数据字段名 */
     dataIndex: string;

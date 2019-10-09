@@ -30,7 +30,7 @@ var _ = require("lodash");
 var antd_1 = require("antd");
 var hljs = require("highlight.js");
 var react_router_dom_1 = require("react-router-dom");
-var utils_1 = require("./utils");
+var Db_Util_1 = require("./Components/Db-Util");
 require("./App.scss");
 var context = require.context('./Components', true, /doc\.tsx$/);
 var componentDocs = context.keys();
@@ -90,7 +90,7 @@ var Wrapper = /** @class */ (function (_super) {
     };
     Wrapper.prototype.render = function () {
         var _this = this;
-        var urlObj = utils_1.urlParser();
+        var urlObj = Db_Util_1.urlParser();
         return (React.createElement(antd_1.Row, { className: "doc-page" },
             React.createElement(antd_1.Col, { span: 6, className: "left-panel" }, componentDocs.map(function (item) {
                 var path = item.replace(/^\./, '').replace(/\.tsx$/, '');

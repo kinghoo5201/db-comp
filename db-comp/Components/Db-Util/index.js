@@ -35,4 +35,23 @@ function getUID() {
     });
 }
 exports.getUID = getUID;
+/** 从数组中取下一项 */
+function getNextItem() {
+    return function (arr) {
+        var index = -1;
+        return function () {
+            index += 1;
+            if (index >= arr.length) {
+                index = 0;
+            }
+            return arr[index];
+        };
+    };
+}
+exports.getNextItem = getNextItem;
+exports.default = {
+    urlParser: urlParser,
+    getUID: getUID,
+    getNextItem: getNextItem,
+};
 //# sourceMappingURL=index.js.map

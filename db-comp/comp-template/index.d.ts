@@ -1,12 +1,12 @@
 import * as React from 'react';
-export declare class TestProps {
+export declare class Props {
     prop1: string;
 }
-declare class TestState {
+declare class State {
 }
-export default class Test extends React.Component<TestProps, TestState> {
-    static defaultProps: TestProps;
-    state: TestState;
+export default class App extends React.Component<Props, State> {
+    static defaultProps: Props;
+    state: State;
     render(): JSX.Element;
 }
 export {};

@@ -14,29 +14,29 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = require("react");
-var TestProps = /** @class */ (function () {
-    function TestProps() {
+var Props = /** @class */ (function () {
+    function Props() {
     }
-    return TestProps;
+    return Props;
 }());
-exports.TestProps = TestProps;
-var TestState = /** @class */ (function () {
-    function TestState() {
+exports.Props = Props;
+var State = /** @class */ (function () {
+    function State() {
     }
-    return TestState;
+    return State;
 }());
-var Test = /** @class */ (function (_super) {
-    __extends(Test, _super);
-    function Test() {
+var App = /** @class */ (function (_super) {
+    __extends(App, _super);
+    function App() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
-        _this.state = new TestState();
+        _this.state = new State();
         return _this;
     }
-    Test.prototype.render = function () {
+    App.prototype.render = function () {
         return React.createElement(React.Fragment, null, "this is test component ");
     };
-    Test.defaultProps = new TestProps();
-    return Test;
+    App.defaultProps = new Props();
+    return App;
 }(React.Component));
-exports.default = Test;
+exports.default = App;
 //# sourceMappingURL=index.js.map
