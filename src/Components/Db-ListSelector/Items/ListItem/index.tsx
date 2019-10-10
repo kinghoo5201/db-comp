@@ -13,15 +13,6 @@ interface SelectorItem {
   targetValue?: string | number;
 }
 
-interface Color {
-  /** 起点颜色 */
-  from: string;
-  /** 结尾颜色 */
-  to: string;
-  /** 线线变化角度值 */
-  direction: string;
-}
-
 class Props {
   /** 选中的选项名称 */
   activeKey?: string = '';
@@ -32,7 +23,7 @@ class Props {
   /** 是否显示目标值 */
   isShowTarget: boolean;
   /** 进度条背景颜色 */
-  strokeColor?: string | Color;
+  strokeColor?: string | string[];
   /** 选项的点击事件 */
   onChange: (params?: any) => any = () => {};
 }
@@ -45,7 +36,7 @@ export default class ListItem extends React.Component<Props, any> {
     unit: string,
     targetValue: string | number,
     isShowValue: boolean,
-    strokeColor: string | Color,
+    strokeColor: string | string[],
   ) => {
     return (
       <div
@@ -68,8 +59,12 @@ export default class ListItem extends React.Component<Props, any> {
                       parseFloat(String(targetValue))) *
                     100
               }%`,
-              background: _.isObject(strokeColor)
-                ? `linear-gradient(${strokeColor.direction}, ${strokeColor.from},${strokeColor.to})`
+              background: _.isArray(strokeColor)
+                ? `linear-gradient(${'to right'}, ${_.get(
+                    strokeColor,
+                    '[0]',
+                    '#7ceeff',
+                  )},${_.get(strokeColor, '[1]', '#7ceeff')})`
                 : strokeColor,
             }}
           />

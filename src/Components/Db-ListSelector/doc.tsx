@@ -14,7 +14,7 @@ export default class Doc extends React.Component<any, any> {
               {
                 name: '1111',
                 unit: '%',
-                value: '80',
+                value: '98',
                 targetValue: '100',
               },
               {
@@ -51,11 +51,11 @@ export default class Doc extends React.Component<any, any> {
             activeKey="1111"
             isShowValue={true}
             isShowTarget={true}
-            strokeColor={{
-              from: '#7ceeff',
-              to: '#188f00',
-              direction: 'to right',
-            }}
+            // strokeColor={{
+            //   from: '#7ceeff',
+            //   to: '#188f00',
+            // }}
+            strokeColor={['#7ceeff', '#188f00']}
             onChange={val => window.console.log('选中项：', val)}
           />
         </div>
@@ -94,6 +94,7 @@ export default class Doc extends React.Component<any, any> {
               },
             ]}
             activeKey="333"
+            strokeColor={['#7ceeff', '#188f00', '#00ff00']}
             onChange={val => window.console.log('选中项：', val)}
           />
         </div>
