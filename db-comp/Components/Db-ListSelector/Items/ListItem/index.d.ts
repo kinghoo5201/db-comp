@@ -19,8 +19,10 @@ declare class Props {
     isShowValue: boolean;
     /** 是否显示目标值 */
     isShowTarget: boolean;
+    /** 进度条背景颜色 */
+    strokeColor?: string | string[];
     /** 选项的点击事件 */
-    onClick: (params?: any) => any;
+    onChange: (params?: any) => any;
 }
 export default class ListItem extends React.Component<Props, any> {
     private showValidProgress;

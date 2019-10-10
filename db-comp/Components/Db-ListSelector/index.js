@@ -13,13 +13,14 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
+/* eslint-disable prefer-template */
 var React = require("react");
 var _ = require("lodash");
 var Items_1 = require("./Items");
 require("./index.scss");
 var ListSelectorProps = /** @class */ (function () {
     function ListSelectorProps() {
-        /** default: list,可选 list/circle/radar 三种类型，radar类型适合三个及以上的选择项使用 */
+        /** default: list,可选 list/circle 两种类型，radar类型适合三个及以上的选择项使用 */
         this.type = 'list';
         /** 给组件增加类名 */
         this.className = '';
@@ -59,7 +60,7 @@ var ListSelector = /** @class */ (function (_super) {
     };
     ListSelector.prototype.render = function () {
         var _this = this;
-        var _a = this.props, type = _a.type, className = _a.className, data = _a.data, onChange = _a.onChange, strokeColor = _a.strokeColor, isShowValue = _a.isShowValue, isShowTarget = _a.isShowTarget;
+        var _a = this.props, type = _a.type, className = _a.className, data = _a.data, onChange = _a.onChange, strokeColor = _a.strokeColor, isShowValue = _a.isShowValue, isShowTarget = _a.isShowTarget, radius = _a.radius, activeRadius = _a.activeRadius, activeWidth = _a.activeWidth, fontSize = _a.fontSize, activeFontSize = _a.activeFontSize, textColor = _a.textColor;
         return (React.createElement("div", { className: "db-" + type + "-selector " + className }, !_.isEmpty(data)
             ? data.map(function (item, index) {
                 if (!_.isNil(item.name)) {
@@ -68,16 +69,25 @@ var ListSelector = /** @class */ (function (_super) {
                                 ? true
                                 : Boolean(isShowValue), isShowTarget: _.isNil(isShowTarget) && isShowTarget !== null
                                 ? true
-                                : Boolean(isShowTarget), onClick: function (val) {
-                                _this.setState({ value: val.name });
-                                onChange(val);
+                                : Boolean(isShowTarget), strokeColor: strokeColor || '#7ceeff', onChange: function (val) {
+                                if (val.name !== _this.state.value) {
+                                    _this.setState({ value: val.name });
+                                    onChange(val);
+                                }
                             } }));
                     }
                     if (type === 'circle') {
-                        return (React.createElement(Items_1.CircleItem, { key: index, activeKey: _this.state.value, isLastCircle: index + 1 === data.length, data: item, onClick: function (val) {
-                                _this.setState({ value: val.name });
-                                onChange(val);
-                            } }));
+                        var strokeColorCircle = strokeColor &&
+                            ((_.isArray(strokeColor) && !_.isEmpty(strokeColor)) ||
+                                _.isString(strokeColor))
+                            ? strokeColor[index % strokeColor.length]
+                            : '#7ceeff';
+                        return (React.createElement(Items_1.CircleItem, { key: index, activeKey: _this.state.value, isLastCircle: index + 1 === data.length, data: item, onChange: function (val) {
+                                if (val.name !== _this.state.value) {
+                                    _this.setState({ value: val.name });
+                                    onChange(val);
+                                }
+                            }, strokeColor: strokeColorCircle, radius: radius || 25, activeRadius: activeRadius || 30, activeWidth: activeWidth || 7, fontSize: fontSize || 18, activeFontSize: activeFontSize || 23, textColor: textColor || '#ffffff' }));
                     }
                 }
             })

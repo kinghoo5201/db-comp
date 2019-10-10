@@ -18,9 +18,12 @@ var _ = require("lodash");
 require("./index.scss");
 var Props = /** @class */ (function () {
     function Props() {
+        /** 选中的项的名称 */
         this.activeKey = '';
+        /** 是否为最后一个 */
         this.isLastCircle = false;
-        this.onClick = function () { };
+        /** 选项的更改事件 */
+        this.onChange = function () { };
     }
     return Props;
 }());
@@ -33,9 +36,46 @@ var CircleItem = /** @class */ (function (_super) {
         var _this = this;
         var name = _.get(this.props, 'data.name', '');
         var isActive = this.props.activeKey === name;
+        var _a = this.props, strokeColor = _a.strokeColor, radius = _a.radius, activeRadius = _a.activeRadius, activeWidth = _a.activeWidth, fontSize = _a.fontSize, activeFontSize = _a.activeFontSize, textColor = _a.textColor;
         return (React.createElement(React.Fragment, null,
-            React.createElement("div", { className: isActive ? 'text-box-wrap active' : 'text-box-wrap', onClick: function () { return _this.props.onClick(_this.props.data); } },
-                React.createElement("div", { className: "text-box" }, name.slice(0, 2))),
+            React.createElement("div", { className: isActive ? 'text-box-wrap active' : 'text-box-wrap', style: isActive
+                    ? {
+                        width: (activeRadius + activeWidth) * 2 + "px",
+                        height: (activeRadius + activeWidth) * 2 + "px",
+                        borderRadius: (activeRadius + activeWidth) * 1 + "px",
+                        fontSize: activeFontSize * 1 + "px",
+                        color: textColor,
+                        backgroundColor: strokeColor + "33",
+                    }
+                    : {
+                        width: radius * 2 + "px",
+                        height: radius * 2 + "px",
+                        borderRadius: radius * 1 + "px",
+                        fontSize: fontSize * 1 + "px",
+                        color: textColor,
+                        backgroundColor: strokeColor + "33",
+                    }, onClick: function () {
+                    _this.props.onChange(_this.props.data);
+                } },
+                React.createElement("div", { className: "text-box", style: isActive
+                        ? {
+                            width: activeRadius * 2 + "px",
+                            height: activeRadius * 2 + "px",
+                            borderRadius: activeRadius * 1 + "px",
+                            lineHeight: activeRadius * 2 + "px",
+                            marginTop: -activeRadius * 1 + "px",
+                            marginLeft: -activeRadius * 1 + "px",
+                            background: strokeColor,
+                        }
+                        : {
+                            width: radius * 2 + "px",
+                            height: radius * 2 + "px",
+                            borderRadius: radius * 1 + "px",
+                            lineHeight: radius * 2 + "px",
+                            marginTop: -radius * 1 + "px",
+                            marginLeft: -radius * 1 + "px",
+                            background: strokeColor,
+                        } }, name.slice(0, 2))),
             !this.props.isLastCircle ? (React.createElement("div", { className: "point-box" },
                 React.createElement("span", { className: "sm-point" }),
                 React.createElement("span", { className: "lg-point" }),

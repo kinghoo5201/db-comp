@@ -8,7 +8,10 @@ export { default as DbTabSelector } from './Components/Db-TabSelector';
 export { default as DbRadarSelector } from './Components/Db-Radar-Selector';
 /** 公告展示组件 */
 export { default as DbNotice } from './Components/Db-Notice';
+/** 多项数据选择组件 */
+export { default as DbListSelector } from './Components/Db-ListSelector';
 /** 通用方法 */
 export { default as DbUtil } from './Components/Db-Util';
-export { default as DbListSelector } from './Components/Db-ListSelector';
+/** 表格下载组件 */
+export { default as DbTableDownload } from './Components/Db-TableDownload';
 //# sourceMappingURL=component.d.ts.map

@@ -21,7 +21,7 @@ var Props = /** @class */ (function () {
         /** 选中的选项名称 */
         this.activeKey = '';
         /** 选项的点击事件 */
-        this.onClick = function () { };
+        this.onChange = function () { };
     }
     return Props;
 }());
@@ -29,7 +29,7 @@ var ListItem = /** @class */ (function (_super) {
     __extends(ListItem, _super);
     function ListItem() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
-        _this.showValidProgress = function (islinesFlag, isActive, value, unit, targetValue, isShowValue) {
+        _this.showValidProgress = function (islinesFlag, isActive, value, unit, targetValue, isShowValue, strokeColor) {
             return (React.createElement("div", { className: "progress-wrap", style: { marginBottom: islinesFlag ? '8px' : 0 } },
                 React.createElement("div", { className: isActive ? 'index-value active' : 'index-value' }, isShowValue ? parseFloat(String(value)) + unit : '\xa0'),
                 React.createElement("div", { className: "progress" },
@@ -41,6 +41,9 @@ var ListItem = /** @class */ (function (_super) {
                                 : (parseFloat(String(value)) /
                                     parseFloat(String(targetValue))) *
                                     100) + "%",
+                            background: _.isArray(strokeColor)
+                                ? "linear-gradient(" + 'to right' + ", " + _.get(strokeColor, '[0]', '#7ceeff') + "," + _.get(strokeColor, '[1]', '#7ceeff') + ")"
+                                : strokeColor,
                         } }),
                     React.createElement("div", { className: "white-placeholds" },
                         React.createElement("div", { className: "spans-wrap" },
@@ -77,16 +80,16 @@ var ListItem = /** @class */ (function (_super) {
         var _a = this.props.data, name = _a.name, _b = _a.unit, unit = _b === void 0 ? '' : _b, value = _a.value, targetValue = _a.targetValue;
         var isActive = _.get(this.props, 'activeKey', '') === name;
         var islinesFlag = Math.ceil(name.length / 8) >= 2;
-        var _c = this.props, isShowValue = _c.isShowValue, isShowTarget = _c.isShowTarget;
+        var _c = this.props, isShowValue = _c.isShowValue, isShowTarget = _c.isShowTarget, strokeColor = _c.strokeColor;
         return (React.createElement("div", { key: name, onClick: function () {
-                _this.props.onClick(_this.props.data);
+                _this.props.onChange(_this.props.data);
             }, className: isActive ? 'list-item list-item-active' : 'list-item' },
             React.createElement("div", { className: "label" },
                 isActive && React.createElement("span", { className: "active-img" }),
                 name),
             !_.isNaN(parseFloat(String(value))) &&
                 !_.isNaN(parseFloat(String(targetValue)))
-                ? this.showValidProgress(islinesFlag, isActive, value, unit, targetValue, isShowValue)
+                ? this.showValidProgress(islinesFlag, isActive, value, unit, targetValue, isShowValue, strokeColor)
                 : this.showInvalidProgress(islinesFlag, isActive, value, unit, isShowValue),
             React.createElement("div", { className: "target-proportion", style: { marginBottom: islinesFlag ? '8px' : 0, width: '64px' } }, isShowTarget
                 ? "" + (targetValue ? "\u76EE\u6807" + targetValue + unit : '\xa0')
