@@ -1,3 +1,4 @@
+/* eslint-disable prefer-template */
 import * as React from 'react';
 import * as _ from 'lodash';
 import { ListItem, CircleItem } from './Items';
@@ -6,11 +7,11 @@ import './index.scss';
 
 interface Color {
   /** 起点颜色 */
-  from: string;
+  from?: string;
   /** 结尾颜色 */
-  to: string;
+  to?: string;
   /** 线线变化角度值 */
-  direction: string;
+  // direction: string;
 }
 
 interface SelectorItem {
@@ -26,8 +27,8 @@ interface SelectorItem {
 }
 
 export class ListSelectorProps {
-  /** default: list,可选 list/circle/radar 三种类型，radar类型适合三个及以上的选择项使用 */
-  public type: string = 'list';
+  /** default: list,可选 list/circle 两种类型，radar类型适合三个及以上的选择项使用 */
+  public type: 'list' | 'circle' = 'list';
   /** 给组件增加类名 */
   public className?: string = '';
   /** activeKey,设置选中的项的对应标识，string类型, 没有配置则默认选中第一项 */
@@ -36,13 +37,28 @@ export class ListSelectorProps {
   public data: SelectorItem[] = [];
   /** change事件 */
   public onChange: (val: string | number) => void;
-  /** type='list',进度条背景颜色,若为字符串：单一颜色，为对象：则为渐变色; type='circle',圆形选择的背景颜色，为字符串，则为单一背景颜色，为数组，则以数组中的顺序渲染颜色 */
-  public strokeColor?: string | Color;
+  /** type='list',进度条背景颜色,若为字符串：单一颜色，为数组：则为渐变色，第一项为起点颜色，第二项为结尾颜色; type='circle',圆形选择的背景颜色，为字符串，则为单一背景颜色，为数组，则以数组中的顺序循环渲染颜色 */
+  public strokeColor?: string | string[];
   /** type='list' 对应的属性 */
   /** 是否显示当前进展值 */
   public isShowValue?: boolean;
   /** 是否显示目标值 */
   public isShowTarget?: boolean;
+  /** type="circle 对应的属性" */
+  /** 圆形的显示半径，默认25px */
+  public radius?: number;
+  /** 被选中项的显示半径，默认为未激活的1.2倍，可自行设置选中的半径长度 */
+  public activeRadius?: number;
+  /** 被选中项的高亮外边距，默认为6px */
+  public activeWidth?: number;
+  /** 选项的文字大小,默认 14px */
+  public fontSize?: number;
+  /** 选项的文字粗细 */
+  public fontWeight?: number | string;
+  /** 被选中的选项文字大小,默认 14px */
+  public activeFontSize?: number;
+  /** 选项的文本颜色 */
+  public textColor?: string;
 }
 
 class ListSelectorState {
@@ -79,7 +95,14 @@ export default class ListSelector extends React.Component<
       strokeColor,
       isShowValue,
       isShowTarget,
+      radius,
+      activeRadius,
+      activeWidth,
+      fontSize,
+      activeFontSize,
+      textColor,
     } = this.props;
+
     return (
       <div className={`db-${type}-selector ${className}`}>
         {!_.isEmpty(data)
@@ -112,6 +135,12 @@ export default class ListSelector extends React.Component<
                   );
                 }
                 if (type === 'circle') {
+                  const strokeColorCircle: string =
+                    strokeColor &&
+                    ((_.isArray(strokeColor) && !_.isEmpty(strokeColor)) ||
+                      _.isString(strokeColor))
+                      ? strokeColor[index % strokeColor.length]
+                      : '#7ceeff';
                   return (
                     <CircleItem
                       key={index}
@@ -124,6 +153,13 @@ export default class ListSelector extends React.Component<
                           onChange(val);
                         }
                       }}
+                      strokeColor={strokeColorCircle}
+                      radius={radius || 25}
+                      activeRadius={activeRadius || 30}
+                      activeWidth={activeWidth || 7}
+                      fontSize={fontSize || 18}
+                      activeFontSize={activeFontSize || 23}
+                      textColor={textColor || '#ffffff'}
                     />
                   );
                 }
