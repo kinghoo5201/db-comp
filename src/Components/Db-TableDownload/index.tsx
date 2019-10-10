@@ -63,7 +63,7 @@ export default class Table2Excel extends React.Component<Props, State> {
     };
 
     const a = document.createElement('a');
-    a.download = this.props.fileName || 'download' + '.xls';
+    a.download = (this.props.fileName || 'download') + '.xls';
     a.innerHTML = 'download';
     a.href = uri + Table2Excel.base64(Table2Excel.format(template, context));
     a.click();
