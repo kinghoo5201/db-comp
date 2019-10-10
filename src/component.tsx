@@ -11,3 +11,5 @@ export { default as DbNotice } from './Components/Db-Notice';
 /** 通用方法 */
 export { default as DbUtil } from './Components/Db-Util';
 export { default as DbListSelector } from './Components/Db-ListSelector';
+/** 表格下载组件 */
+export { default as DbTableDownload } from './Components/Db-TableDownload';
