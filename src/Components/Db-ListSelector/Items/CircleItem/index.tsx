@@ -13,7 +13,7 @@ class Props {
 
   isLastCircle? = false;
 
-  onClick: (params?: any) => any = () => {};
+  onChange: (params?: any) => any = () => {};
 }
 
 export default class CircleItem extends React.Component<Props, any> {
@@ -28,7 +28,9 @@ export default class CircleItem extends React.Component<Props, any> {
       <React.Fragment>
         <div
           className={isActive ? 'text-box-wrap active' : 'text-box-wrap'}
-          onClick={() => this.props.onClick(this.props.data)}
+          onClick={() => {
+            this.props.onChange(this.props.data);
+          }}
         >
           <div className="text-box">{name.slice(0, 2)}</div>
         </div>

@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as _ from 'lodash';
 import { ListItem, CircleItem } from './Items';
 import './index.scss';
-import { validate } from '@babel/types';
+// import { validate } from '@babel/types';
 
 interface Color {
   /** 起点颜色 */
@@ -101,9 +101,12 @@ export default class ListSelector extends React.Component<
                           ? true
                           : Boolean(isShowTarget)
                       }
-                      onClick={val => {
-                        this.setState({ value: val.name });
-                        onChange(val);
+                      strokeColor={strokeColor || '#7ceeff'}
+                      onChange={val => {
+                        if (val.name !== this.state.value) {
+                          this.setState({ value: val.name });
+                          onChange(val);
+                        }
                       }}
                     />
                   );
@@ -115,9 +118,11 @@ export default class ListSelector extends React.Component<
                       activeKey={this.state.value}
                       isLastCircle={index + 1 === data.length}
                       data={item}
-                      onClick={val => {
-                        this.setState({ value: val.name });
-                        onChange(val);
+                      onChange={val => {
+                        if (val.name !== this.state.value) {
+                          this.setState({ value: val.name });
+                          onChange(val);
+                        }
                       }}
                     />
                   );
