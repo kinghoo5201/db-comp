@@ -95,6 +95,9 @@ export default class Doc extends React.Component<any, any> {
             ]}
             activeKey="333"
             strokeColor={['#7ceeff', '#188f00', '#00ff00']}
+            radius={20}
+            activeWidth={2}
+            fontSize={10}
             onChange={val => window.console.log('选中项：', val)}
           />
         </div>

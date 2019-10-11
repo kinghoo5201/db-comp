@@ -1,0 +1,53 @@
+.bees-list {
+  min-height: 80px;
+  font-size: 1rem;
+  color: rgba(51, 51, 51, 1);
+  .bees-list-content {
+    border-bottom: 1px solid #eee;
+
+    .bees-list-title {
+      color: rgba(19, 20, 21, 1);
+      font-weight: bold;
+    }
+
+    .bees-list-item-wrap:nth-child(even) {
+      background-color: rgba(248, 248, 248, 1);
+    }
+
+    .bees-list-item {
+      padding: 1rem 1rem;
+      display: flex;
+      flex-direction: row;
+
+      .online-status-item {
+        display: flex;
+        width: 100%;
+
+        .context {
+          width: 100%;
+          padding-right: 16px;
+        }
+
+        .addon {
+          white-space: nowrap;
+          & > span {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .anticon {
+              vertical-align: middle;
+              margin-left: 4px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .expand {
+    width: 4rem;
+    margin: 0 auto;
+    padding: 1rem 0;
+    color: rgba(20, 145, 255, 1);
+  }
+}

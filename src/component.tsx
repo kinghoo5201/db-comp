@@ -10,5 +10,7 @@ export { default as DbRadarSelector } from './Components/Db-Radar-Selector';
 export { default as DbNotice } from './Components/Db-Notice';
 /** 多项数据选择组件 */
 export { default as DbListSelector } from './Components/Db-ListSelector';
+/** 折叠列表组件 */
+export { default as DbBackTop } from './Components/Db-FoldList';
 /** 通用方法 */
 export { default as DbUtil } from './Components/Db-Util';
