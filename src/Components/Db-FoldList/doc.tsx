@@ -59,6 +59,11 @@ export default class Doc extends React.Component<any, any> {
             ]}
             itemRender={this.renderGuantongItem}
           />
+          <h3>列表折叠组件</h3>
+          <p>列表选择组件，直接渲染组件内部子元素，这个不进行折叠</p>
+          <Component title="我是标题">
+            <div>我是组件的子元素</div>
+          </Component>
         </div>
       </div>
     );

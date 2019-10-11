@@ -15,7 +15,7 @@ export class FoldListProps {
   /** 折叠组件的标题名称 */
   public title?: string = '';
   /** 折叠组件的数据 */
-  public dataSource: ListItem[] = [];
+  public dataSource?: ListItem[] = [];
   /** 每列要显示的键名 */
   // public colInfo?: string[] = [];
   /** 每列要渲染成的样式的处理方法 */
