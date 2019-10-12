@@ -18,6 +18,9 @@ exports.DbNotice = Db_Notice_1.default;
 /** 多项数据选择组件 */
 var Db_ListSelector_1 = require("./Components/Db-ListSelector");
 exports.DbListSelector = Db_ListSelector_1.default;
+/** 折叠列表组件 */
+var Db_FoldList_1 = require("./Components/Db-FoldList");
+exports.DbBackTop = Db_FoldList_1.default;
 /** 通用方法 */
 var Db_Util_1 = require("./Components/Db-Util");
 exports.DbUtil = Db_Util_1.default;
