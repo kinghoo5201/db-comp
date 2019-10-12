@@ -20,11 +20,14 @@ var Db_ListSelector_1 = require("./Components/Db-ListSelector");
 exports.DbListSelector = Db_ListSelector_1.default;
 /** 折叠列表组件 */
 var Db_FoldList_1 = require("./Components/Db-FoldList");
-exports.DbBackTop = Db_FoldList_1.default;
+exports.DbFoldList = Db_FoldList_1.default;
 /** 通用方法 */
 var Db_Util_1 = require("./Components/Db-Util");
 exports.DbUtil = Db_Util_1.default;
 /** 表格下载组件 */
 var Db_TableDownload_1 = require("./Components/Db-TableDownload");
 exports.DbTableDownload = Db_TableDownload_1.default;
+/** 多余文字省略组件 */
+var Db_Ellipsis_1 = require("./Components/Db-Ellipsis");
+exports.DbEllipsis = Db_Ellipsis_1.default;
 //# sourceMappingURL=component.js.map
