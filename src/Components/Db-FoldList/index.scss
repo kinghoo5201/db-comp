@@ -1,20 +1,20 @@
-.bees-list {
+.fold-list {
   min-height: 80px;
   font-size: 1rem;
   color: rgba(51, 51, 51, 1);
-  .bees-list-content {
+  .fold-list-content {
     border-bottom: 1px solid #eee;
 
-    .bees-list-title {
+    .fold-list-title {
       color: rgba(19, 20, 21, 1);
       font-weight: bold;
     }
 
-    .bees-list-item-wrap:nth-child(even) {
+    .fold-list-item-wrap:nth-child(even) {
       background-color: rgba(248, 248, 248, 1);
     }
 
-    .bees-list-item {
+    .fold-list-item {
       padding: 1rem 1rem;
       display: flex;
       flex-direction: row;
@@ -44,10 +44,12 @@
     }
   }
 
-  .expand {
-    width: 4rem;
-    margin: 0 auto;
+  .fold-list-expand {
+    // width: 4rem;
+    // margin: 0 auto;
     padding: 1rem 0;
+    text-align: center;
     color: rgba(20, 145, 255, 1);
+    cursor: pointer;
   }
 }
