@@ -21,7 +21,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
  */
 var React = require("react");
 var _ = require("lodash");
-var utils_1 = require("../../utils");
+var Db_Util_1 = require("../Db-Util");
 var react_dom_1 = require("react-dom");
 require("./index.scss");
 var ContextProps = /** @class */ (function () {
@@ -55,7 +55,7 @@ var ContextMenu = /** @class */ (function (_super) {
             index: null,
         };
         /** 右键菜单内容容器id */
-        _this.contextMenuContId = "context-menu-container-" + utils_1.getUID();
+        _this.contextMenuContId = "context-menu-container-" + Db_Util_1.getUID();
         /** 监听body的click事件，当点击不是表格将关闭右键 */
         _this.handleBodyClick = function (e) {
             if (_this.contextContainer && !_this.contextContainer.contains(e.target)) {

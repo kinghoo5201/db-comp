@@ -14,3 +14,5 @@ export { default as DbListSelector } from './Components/Db-ListSelector';
 export { default as DbBackTop } from './Components/Db-FoldList';
 /** 通用方法 */
 export { default as DbUtil } from './Components/Db-Util';
+/** 表格下载组件 */
+export { default as DbTableDownload } from './Components/Db-TableDownload';

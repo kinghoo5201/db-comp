@@ -27,9 +27,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var React = require("react");
 var _ = require("lodash");
 var antd_1 = require("antd");
-var utils_1 = require("../../utils");
-require("./index.scss");
-var idKey = utils_1.getUID();
+var Db_Util_1 = require("../Db-Util");
+var idKey = Db_Util_1.getUID();
 var TableProps = /** @class */ (function () {
     function TableProps() {
         /** 容器类名 */

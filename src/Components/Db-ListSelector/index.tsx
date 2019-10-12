@@ -24,6 +24,7 @@ interface SelectorItem {
   /** 选项的目标值 */
   targetValue?: string | number;
   /** type='circle' 对应的属性 */
+  [propname: string]: any;
 }
 
 export class ListSelectorProps {

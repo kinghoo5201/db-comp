@@ -1,0 +1,11 @@
+.db-ellipsis {
+  overflow: hidden;
+  display: inline-block;
+  word-break: break-all;
+  width: 100%;
+  box-sizing: border-box;
+  &.line-one {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}

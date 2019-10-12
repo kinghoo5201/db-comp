@@ -7,4 +7,12 @@ export declare function urlParser(url?: string): {
 };
 /** 获取唯一值 */
 export declare function getUID(): string;
+/** 从数组中取下一项 */
+export declare function getNextItem(): (arr: any[]) => () => any;
+declare const _default: {
+    urlParser: typeof urlParser;
+    getUID: typeof getUID;
+    getNextItem: typeof getNextItem;
+};
+export default _default;
 //# sourceMappingURL=index.d.ts.map
