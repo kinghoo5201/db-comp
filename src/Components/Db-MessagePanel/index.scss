@@ -1,0 +1,48 @@
+.message-panel {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  &-mask {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+  &-content {
+    position: absolute;
+    z-index: 3;
+    background-color: #fff;
+    box-shadow: 1px 1px 2px #ccc;
+    &-type {
+      font-size: 16px;
+      .anticon {
+        vertical-align: middle !important;
+      }
+      svg {
+        width: 20px !important;
+        height: 20px !important;
+      }
+      span {
+        margin-left: 6px;
+      }
+    }
+
+    &-loading svg {
+      color: blue;
+    }
+    &-info svg {
+      color: blue;
+    }
+    &-success svg {
+      color: green;
+    }
+    &-warn svg {
+      color: orange;
+    }
+    &-error svg {
+      color: red;
+    }
+  }
+}
