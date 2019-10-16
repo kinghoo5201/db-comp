@@ -1,6 +1,7 @@
 import * as React from 'react';
-import * as _ from 'lodash';
 import Component from './index';
+import * as _ from 'lodash';
+import { Icon } from 'antd';
 
 export default class Doc extends React.Component<any, any> {
   renderGuantongItem = (item: { [props: string]: string | number }) => {
@@ -35,12 +36,90 @@ export default class Doc extends React.Component<any, any> {
           >
             <Component
               className=""
-              isActive={true}
+              isActive
               type="success"
+              content="cxxx"
+            ></Component>
+          </div>
+          <div
+            style={{
+              width: '800px',
+              height: '200px',
+              border: '1px solid #ddd',
+            }}
+          >
+            <Component
+              className=""
+              isActive={true}
+              type="warn"
               content="cxxx"
               width={200}
               height={100}
               hasMask={true}
+            ></Component>
+          </div>
+          <div
+            style={{
+              width: '800px',
+              height: '200px',
+              border: '1px solid #ddd',
+            }}
+          >
+            <Component
+              className=""
+              isActive={true}
+              type="error"
+              content="cxxx"
+              width={200}
+              height={100}
+              hasMask={true}
+            ></Component>
+          </div>
+          <div
+            style={{
+              width: '800px',
+              height: '200px',
+              border: '1px solid #ddd',
+            }}
+          >
+            <Component
+              className=""
+              isActive={true}
+              type="info"
+              content="cxxx"
+              width={200}
+              height={100}
+              hasMask={true}
+            ></Component>
+          </div>
+          <div
+            style={{
+              width: '800px',
+              height: '200px',
+              border: '1px solid #ddd',
+            }}
+          >
+            <Component
+              className=""
+              isActive={true}
+              type="loading"
+              content="cxxx"
+              width={200}
+              height={100}
+            ></Component>
+          </div>
+          <div
+            style={{
+              width: '800px',
+              height: '200px',
+              border: '1px solid #ddd',
+            }}
+          >
+            <Component
+              isActive={true}
+              content={<Icon type="question-circle" />}
+              width={200}
+              height={100}
             ></Component>
           </div>
         </div>

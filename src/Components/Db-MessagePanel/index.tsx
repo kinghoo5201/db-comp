@@ -11,9 +11,9 @@ export class MessagePanelProps {
   /** 提示框是否显示 */
   public isActive?: boolean = true;
   /** 提示类型，加载中、信息、成功、失败、自定义 */
-  public type: 'loading' | 'info' | 'success' | 'warn' | 'error' | 'custom';
+  public type?: 'loading' | 'info' | 'success' | 'warn' | 'error';
   /** 提示内容，字符串内容，或自定义元素 */
-  public content?: string | React.ReactNode = '';
+  public content?: React.ReactNode = '';
   /** 提示框的宽度，默认宽度 480px */
   public width?: number = 480;
   /** 提示框的高度，默认为 56px */
@@ -53,24 +53,27 @@ export default class MessagePanel extends React.Component<
       error: 'close-circle',
     };
 
-    return isActive ? (
+    const defaultWidth = 400;
+    const defaultHeight = 56;
+
+    return isActive && (type || content) ? (
       <div className={'message-panel'}>
         {hasMask && <div className="message-panel-mask"></div>}
         <div
           className={`message-panel-content ${className || ''}`}
           style={{
-            width: `${width || 480}px`,
-            height: `${height || 56}px`,
-            lineHeight: `${height || 56}px`,
+            width: `${width || defaultWidth}px`,
+            height: `${height || defaultHeight}px`,
+            lineHeight: `${height || defaultHeight}px`,
             textAlign: 'center',
-            top: `calc(50% - ${height / 2}px)`,
-            left: `calc(50% - ${width / 2}px)`,
+            top: `calc(50% - ${(height || defaultHeight) / 2}px)`,
+            left: `calc(50% - ${(width || defaultWidth) / 2}px)`,
           }}
         >
           <span
             className={`message-panel-content-type message-panel-content-${type}`}
           >
-            {typeObj[type] && <Icon type={`${typeObj[type]}`} />}
+            {type && typeObj[type] && <Icon type={`${typeObj[type]}`} />}
             <span>{content || ''}</span>
           </span>
         </div>
