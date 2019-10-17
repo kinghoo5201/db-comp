@@ -18,3 +18,5 @@ export { default as DbUtil } from './Components/Db-Util';
 export { default as DbTableDownload } from './Components/Db-TableDownload';
 /** 多余文字省略组件 */
 export { default as DbEllipsis } from './Components/Db-Ellipsis';
+/** 信息提示组件 */
+export { default as DbMessagePanel } from './Components/Db-MessagePanel';
