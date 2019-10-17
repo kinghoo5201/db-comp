@@ -30,4 +30,7 @@ exports.DbTableDownload = Db_TableDownload_1.default;
 /** 多余文字省略组件 */
 var Db_Ellipsis_1 = require("./Components/Db-Ellipsis");
 exports.DbEllipsis = Db_Ellipsis_1.default;
+/** 信息提示组件 */
+var Db_MessagePanel_1 = require("./Components/Db-MessagePanel");
+exports.DbMessagePanel = Db_MessagePanel_1.default;
 //# sourceMappingURL=component.js.map
